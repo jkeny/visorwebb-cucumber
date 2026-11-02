@@ -20,7 +20,7 @@ public class Hooks {
 		}
 		try {
 			
-			navegadorActual=Navegador.valueOf(navegadorSystem.toUpperCase());
+			navegadorActual=Navegador.valueOf(navegadorSystem.trim().toUpperCase());
 			
 		} catch (IllegalArgumentException e) {
 			throw new RuntimeException(
