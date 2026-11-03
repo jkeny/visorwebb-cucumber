@@ -1,6 +1,5 @@
 package pe.visorwebb.pagina.categoria;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,8 +11,8 @@ public class PaginaMantenimientoCategoria extends BasePage {
 	@FindBy(id = "btnNuevo")
 	WebElement btnNuevo;
 
-	public PaginaMantenimientoCategoria(WebDriver driver) {
-		super(driver);
+	public PaginaMantenimientoCategoria() {
+		super();
 
 	}
 
@@ -21,7 +20,7 @@ public class PaginaMantenimientoCategoria extends BasePage {
 		
 		click(btnNuevo);
 		
-		return new PaginaRegistrarCategoria(driver);
+		return new PaginaRegistrarCategoria();
 	
 	}
 

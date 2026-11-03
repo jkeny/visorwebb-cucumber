@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 
-import io.cucumber.java.Before;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -29,17 +29,17 @@ public class RegistrarCategoriaStep {
 		//this.driver = DriverFactory.obtenerDriver();
 	}
 
-	@Before
-	public void inicializarPaginas() {
-
-		//this.driver = DriverFactory.obtenerDriver();
-		//screenshoots sin usar @Managed
-		//net.thucydides.core.webdriver.ThucydidesWebDriverSupport.useDriver(driver);
-		
-		paginaLogin = new PaginaLogin(driver);
-		paginaMenuPrincipal = new PaginaMenuPrincipal(driver);
-		paginaRegistrarCategoria = new PaginaRegistrarCategoria(driver);
-	}
+//	@Before
+//	public void inicializarPaginas() {
+//
+//		//this.driver = DriverFactory.obtenerDriver();
+//		//screenshoots sin usar @Managed
+//		//net.thucydides.core.webdriver.ThucydidesWebDriverSupport.useDriver(driver);
+//		System.out.println("Driver = " + driver);
+//		paginaLogin = new PaginaLogin(driver);
+//		paginaMenuPrincipal = new PaginaMenuPrincipal(driver);
+//		paginaRegistrarCategoria = new PaginaRegistrarCategoria(driver);
+//	}
 
 
 	@Given("cargo la pagina visor web")

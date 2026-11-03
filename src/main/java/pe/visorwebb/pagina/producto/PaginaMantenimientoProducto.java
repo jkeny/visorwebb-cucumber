@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -45,19 +44,19 @@ public class PaginaMantenimientoProducto extends BasePage {
 	@FindBy(id = "btnSi")
 	private WebElement btnSi;
 
-	public PaginaMantenimientoProducto(WebDriver driver) {
-		super(driver);
+	public PaginaMantenimientoProducto() {
+		super();
 
 	}
 
 	public PaginaRegistrarProducto hacerClicEnBotonNuevo() {
 		click(btnNuevo);
-		return new PaginaRegistrarProducto(driver);
+		return new PaginaRegistrarProducto();
 	}
 
 	public PaginaActualizarProducto hacerClicEnBotonEditar() {
 		click(btnActualizar);
-		return new PaginaActualizarProducto(driver);
+		return new PaginaActualizarProducto();
 	}
 
 	public void hacerClicEnBotonEliminar() {

@@ -1,6 +1,5 @@
 package pe.visorwebb.pagina.menu;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,8 +22,8 @@ public class PaginaMenuPrincipal extends BasePage {
 	@FindBy(partialLinkText = "Mnt. de Categoría")
 	WebElement menuMantCategoria;
 
-	public PaginaMenuPrincipal(WebDriver driver) {
-		super(driver);
+	public PaginaMenuPrincipal() {
+		super();
 	}
 
 	public PaginaMantenimientoProducto cargarPaginaMantenimientoProducto() {
@@ -35,7 +34,7 @@ public class PaginaMenuPrincipal extends BasePage {
 		click(menuMantProducto);
 		
 
-		return new PaginaMantenimientoProducto(driver);
+		return new PaginaMantenimientoProducto();
 
 	}
 	
@@ -44,7 +43,7 @@ public class PaginaMenuPrincipal extends BasePage {
 		click(menuHamburguesa);
 		click(menuModAlmacen);
 		click(menuMantCategoria);
-		return new PaginaMantenimientoCategoria(driver);
+		return new PaginaMantenimientoCategoria();
 	
 	}
 

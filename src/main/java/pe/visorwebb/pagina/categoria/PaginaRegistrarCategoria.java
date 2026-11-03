@@ -1,7 +1,6 @@
 package pe.visorwebb.pagina.categoria;
 
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -24,8 +23,8 @@ public class PaginaRegistrarCategoria extends BasePage {
 	@FindBy(xpath = "//span[@class='ui-messages-info-summary'] | //span[@class='ui-messages-error-summary']")
 	WebElement lblMensaje;
 
-	public PaginaRegistrarCategoria(WebDriver driver) {
-		super(driver);
+	public PaginaRegistrarCategoria() {
+		super();
 		// menuPrincipal = new MenuPrincipal(driver);
 
 	}

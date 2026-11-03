@@ -1,6 +1,5 @@
 package pe.visorwebb.pagina.login;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,8 +25,8 @@ public class PaginaLogin extends BasePage {
 	@FindBy(xpath = "//div[@class='title-main'] | //span[@class='ui-messages-warn-summary'] | //span[@class='ui-messages-error-summary']")
 	private WebElement lblMensajeSesionUnificado;
 
-	public PaginaLogin(WebDriver driver) {
-		super(driver);
+	public PaginaLogin() {
+		super();
 
 	}
 	@Step("Ingresar Usuario = '{0}'")
@@ -54,7 +53,7 @@ public class PaginaLogin extends BasePage {
 		ingresarContrasena(clave);
 		hacerClicEnIngresar();
 
-		return new PaginaMenuPrincipal(driver);
+		return new PaginaMenuPrincipal();
 
 	}
 

@@ -1,6 +1,6 @@
 package pe.visorwebb.pagina.producto;
 
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -23,8 +23,8 @@ public class PaginaActualizarProducto extends BasePage {
 	@FindBy(xpath = "//span[@class='ui-messages-info-summary'] | //span[@class='ui-messages-error-summary']")
 	private WebElement lblMensajeRegistroProducto;
 
-	public PaginaActualizarProducto(WebDriver driver) {
-		super(driver);
+	public PaginaActualizarProducto() {
+		super();
 
 	}
 

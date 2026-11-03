@@ -151,7 +151,9 @@
 					<systemPropertyVariables>
 						<!-- Pasa la propiedad 'browser' de la terminal hacia tu
 						clase PruebaBase -->
-						<browser>${browser}</browser>
+						<!-- <browser>${browser}</browser>-->
+						<environment>${environment}</environment>
+						<webdriver.driver>${webdriver.driver}</webdriver.driver>
 					</systemPropertyVariables>
 					<!-- AGREGADO: Configuración del agente para que Allure
 					escuche las anotaciones @Step -->

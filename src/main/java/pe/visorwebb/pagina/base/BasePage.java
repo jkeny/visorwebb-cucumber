@@ -7,24 +7,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import net.serenitybdd.core.pages.PageObject;
 
-public class BasePage {
+public class BasePage extends PageObject {
 
 	protected WebDriver driver;
 	protected WebDriverWait wait;
 
-	public BasePage(WebDriver driver) {
+	public BasePage() {
 
-		this.driver = driver;
+		this.driver = getDriver();
 		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-		PageFactory.initElements(driver, this);
-
 	}
 
 	public void click(WebElement element) {
