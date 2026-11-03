@@ -10,15 +10,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Managed;
-import pe.visorwebb.browsers.DriverFactory;
 import pe.visorwebb.pagina.categoria.PaginaRegistrarCategoria;
 import pe.visorwebb.pagina.login.PaginaLogin;
 import pe.visorwebb.pagina.menu.PaginaMenuPrincipal;
 
 
+
 public class RegistrarCategoriaStep {
 
-	//@Managed
+	@Managed
 	private WebDriver driver;
 	private PaginaLogin paginaLogin;
 	private PaginaMenuPrincipal paginaMenuPrincipal;
@@ -29,12 +29,12 @@ public class RegistrarCategoriaStep {
 		//this.driver = DriverFactory.obtenerDriver();
 	}
 
-	@Before(order = 2)
+	@Before
 	public void inicializarPaginas() {
 
-		this.driver = DriverFactory.obtenerDriver();
-		//screenshoots sin usar @Mabaged
-		net.thucydides.core.webdriver.ThucydidesWebDriverSupport.useDriver(driver);
+		//this.driver = DriverFactory.obtenerDriver();
+		//screenshoots sin usar @Managed
+		//net.thucydides.core.webdriver.ThucydidesWebDriverSupport.useDriver(driver);
 		
 		paginaLogin = new PaginaLogin(driver);
 		paginaMenuPrincipal = new PaginaMenuPrincipal(driver);
