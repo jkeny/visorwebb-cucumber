@@ -23,12 +23,6 @@ public class PaginaRegistrarCategoria extends BasePage {
 	@FindBy(xpath = "//span[@class='ui-messages-info-summary'] | //span[@class='ui-messages-error-summary']")
 	WebElement lblMensaje;
 
-	public PaginaRegistrarCategoria() {
-		super();
-		// menuPrincipal = new MenuPrincipal(driver);
-
-	}
-
 	public void registrarCategoria(String categoria) {
 		limpiar(txtNombre);
 		escribir(txtNombre, categoria);

@@ -11,16 +11,19 @@ public class PaginaMantenimientoCategoria extends BasePage {
 	@FindBy(id = "btnNuevo")
 	WebElement btnNuevo;
 
-	public PaginaMantenimientoCategoria() {
-		super();
+//	public PaginaMantenimientoCategoria() {
+//		super();
+//
+//	}
 
-	}
-
-	public PaginaRegistrarCategoria cargarPaginaRegistrarCategoria() {
+	public void cargarPaginaRegistrarCategoria() {
 		
 		click(btnNuevo);
 		
-		return new PaginaRegistrarCategoria();
+		//return new PaginaRegistrarCategoria();
+		//return switchToPage(PaginaRegistrarCategoria.class);
+		
+
 	
 	}
 

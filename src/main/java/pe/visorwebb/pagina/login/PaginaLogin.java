@@ -25,10 +25,10 @@ public class PaginaLogin extends BasePage {
 	@FindBy(xpath = "//div[@class='title-main'] | //span[@class='ui-messages-warn-summary'] | //span[@class='ui-messages-error-summary']")
 	private WebElement lblMensajeSesionUnificado;
 
-	public PaginaLogin() {
-		super();
-
-	}
+//	public PaginaLogin() {
+//		super();
+//
+//	}
 	@Step("Ingresar Usuario = '{0}'")
 	public void ingresarUsuaio(String usuario) {
 		limpiar(txtUsuario);
@@ -48,12 +48,13 @@ public class PaginaLogin extends BasePage {
 
 	@Attachment
 	@Step("Iniciar Sesion --> Usuario = '{0}' y  Contraseña = '{1}'")
-	public PaginaMenuPrincipal iniciarSesion(String usuario, String clave) {
+	public void iniciarSesion(String usuario, String clave) {
 		ingresarUsuaio(usuario);
 		ingresarContrasena(clave);
 		hacerClicEnIngresar();
 
-		return new PaginaMenuPrincipal();
+		//return new PaginaMenuPrincipal();
+		//return this.switchToPage(PaginaMenuPrincipal.class);
 
 	}
 

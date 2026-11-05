@@ -44,10 +44,10 @@ public class PaginaMantenimientoProducto extends BasePage {
 	@FindBy(id = "btnSi")
 	private WebElement btnSi;
 
-	public PaginaMantenimientoProducto() {
-		super();
-
-	}
+//	public PaginaMantenimientoProducto() {
+//		super();
+//
+//	}
 
 	public PaginaRegistrarProducto hacerClicEnBotonNuevo() {
 		click(btnNuevo);
@@ -56,7 +56,8 @@ public class PaginaMantenimientoProducto extends BasePage {
 
 	public PaginaActualizarProducto hacerClicEnBotonEditar() {
 		click(btnActualizar);
-		return new PaginaActualizarProducto();
+		//return new PaginaActualizarProducto();
+		return this.switchToPage(PaginaActualizarProducto.class);
 	}
 
 	public void hacerClicEnBotonEliminar() {

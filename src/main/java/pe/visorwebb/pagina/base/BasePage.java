@@ -15,19 +15,27 @@ import net.serenitybdd.core.pages.PageObject;
 
 public class BasePage extends PageObject {
 
-	protected WebDriver driver;
-	protected WebDriverWait wait;
+//	protected WebDriver driver;
+//protected WebDriverWait getWait;
 
-	public BasePage() {
+//	public BasePage() {
+//
+//		this.driver = getDriver();
+//		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+//	}
 
-		this.driver = getDriver();
-		this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	public WebDriver getActiveDriver() {
+		return getDriver();
+	}
+
+	public WebDriverWait getWait() {
+		return new WebDriverWait(getDriver(), Duration.ofSeconds(20));
 	}
 
 	public void click(WebElement element) {
 		if (element != null) {
 
-			wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+			getWait().until(ExpectedConditions.elementToBeClickable(element)).click();
 		} else {
 			throw new RuntimeException("No se puede hacer clic porque el elemento proporcionado es nulo.");
 		}
@@ -35,23 +43,23 @@ public class BasePage extends PageObject {
 
 	public void escribir(WebElement element, String texto) {
 
-		wait.until(ExpectedConditions.visibilityOf(element)).sendKeys(texto);
+		getWait().until(ExpectedConditions.visibilityOf(element)).sendKeys(texto);
 
 	}
 
 	public void limpiar(WebElement element) {
 
-		wait.until(ExpectedConditions.visibilityOf(element)).clear();
+		getWait().until(ExpectedConditions.visibilityOf(element)).clear();
 
 	}
 
 	public String obtenerTexto(WebElement element) {
-		return wait.until(ExpectedConditions.visibilityOf(element)).getText();
+		return getWait().until(ExpectedConditions.visibilityOf(element)).getText();
 
 	}
 
 	public void seleccionarPorTextoVisible(WebElement elemento, String texto) {
-		wait.until(ExpectedConditions.visibilityOf(elemento));
+		getWait().until(ExpectedConditions.visibilityOf(elemento));
 		Select select = new Select(elemento);
 		select.selectByVisibleText(texto);
 	}
@@ -62,29 +70,29 @@ public class BasePage extends PageObject {
 		// wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator)));
 		// 1. PASO DE PRESENCIA: Esperamos a que los elementos existan en la estructura
 		// HTML de la página
-		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		getWait().until(ExpectedConditions.presenceOfElementLocated(locator));
 
 		// 2. PASO DE REFRESCO Y VISIBILIDAD: Devolvemos la lista estabilizándola contra
 		// cambios en el DOM (Stale)
-		return wait.until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator)));
+		return getWait().until(ExpectedConditions.refreshed(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator)));
 
 	}
 
 	public WebElement encontrarElemento(By locator) {
 
-		return driver.findElement(locator);
+		return getActiveDriver().findElement(locator);
 
 	}
 
 	public void esperarReferenciaSeaObsoleta(WebElement element) {
 
-		wait.until(ExpectedConditions.stalenessOf(element));
+		getWait().until(ExpectedConditions.stalenessOf(element));
 
 	}
 
 	public void esperarHastaQueSeaVisible(WebElement element) {
 
-		wait.until(ExpectedConditions.visibilityOf(element));
+		getWait().until(ExpectedConditions.visibilityOf(element));
 
 	}
 
@@ -109,7 +117,7 @@ public class BasePage extends PageObject {
 
 	public WebElement obtenerFilaPorValorColumna(By tabla, int indiceColumna, String valorBuscado) {
 
-		List<WebElement> filas = driver.findElement(tabla).findElements(By.tagName("tr"));
+		List<WebElement> filas = getActiveDriver().findElement(tabla).findElements(By.tagName("tr"));
 
 		for (WebElement fila : filas) {
 
@@ -126,7 +134,7 @@ public class BasePage extends PageObject {
 
 	public WebElement obtenerFilaPorTexto(By tabla, String texto) {
 
-		List<WebElement> filas = driver.findElement(tabla).findElements(By.tagName("tr"));
+		List<WebElement> filas = getActiveDriver().findElement(tabla).findElements(By.tagName("tr"));
 
 		// List<WebElement> filas = tablaElement.findElements(By.tagName("tr"));
 
@@ -136,7 +144,7 @@ public class BasePage extends PageObject {
 
 	public WebElement obtenerCeldaPorTexto(By tabla, String texto) {
 
-		List<WebElement> celdas = driver.findElement(tabla).findElements(By.tagName("td"));
+		List<WebElement> celdas = getActiveDriver().findElement(tabla).findElements(By.tagName("td"));
 
 		return celdas.stream().filter(c -> c.getText().contains(texto)).findFirst()
 				.orElseThrow(() -> new NoSuchElementException("No se encontró una celda con el texto: " + texto));
@@ -183,7 +191,7 @@ public class BasePage extends PageObject {
 
 	public void hacerClickFila(By tabla, String texto) {
 
-		WebElement tablaElement = driver.findElement(tabla);
+		WebElement tablaElement = getActiveDriver().findElement(tabla);
 
 		List<WebElement> filas = tablaElement.findElements(By.tagName("tr"));
 

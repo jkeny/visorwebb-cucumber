@@ -22,10 +22,10 @@ public class PaginaRegistrarProducto extends BasePage {
 	@FindBy(xpath = "//span[@class='ui-messages-info-summary'] | //span[@class='ui-messages-error-summary']")
 	private WebElement lblMensajeRegistroProducto;
 
-	public PaginaRegistrarProducto() {
-		super();
-
-	}
+//	public PaginaRegistrarProducto() {
+//		super();
+//
+//	}
 
 	public void escribirNombreProducto(String nombreProducto) {
 		limpiar(txtNombre);

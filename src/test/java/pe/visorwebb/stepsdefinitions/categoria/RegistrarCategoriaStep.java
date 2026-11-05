@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Managed;
+import pe.visorwebb.pagina.categoria.PaginaMantenimientoCategoria;
 import pe.visorwebb.pagina.categoria.PaginaRegistrarCategoria;
 import pe.visorwebb.pagina.login.PaginaLogin;
 import pe.visorwebb.pagina.menu.PaginaMenuPrincipal;
@@ -20,8 +21,11 @@ public class RegistrarCategoriaStep {
 
 	@Managed
 	private WebDriver driver;
+	
+	
 	private PaginaLogin paginaLogin;
 	private PaginaMenuPrincipal paginaMenuPrincipal;
+	private PaginaMantenimientoCategoria paginaMantenimientoCategoria;
 	private PaginaRegistrarCategoria paginaRegistrarCategoria;
 	
 	
@@ -44,6 +48,10 @@ public class RegistrarCategoriaStep {
 
 	@Given("cargo la pagina visor web")
 	public void cargaPaginaVisorWeb() {
+		
+	    System.out.println("environment = " + System.getProperty("environment"));
+	    System.out.println("webdriver.driver = " + System.getProperty("webdriver.driver"));
+
 
 		driver.get("http://localhost:8080/VisorWeb/");
 
@@ -56,7 +64,8 @@ public class RegistrarCategoriaStep {
 
 	@When("cargo la pagina registrar categoria")
 	public void cargaPaginaRegistrarCategoria() {
-		paginaMenuPrincipal.cargarPaginaMantenimientoCategoria().cargarPaginaRegistrarCategoria();
+		paginaMenuPrincipal.cargarPaginaMantenimientoCategoria();
+		paginaMantenimientoCategoria.cargarPaginaRegistrarCategoria();
 
 	}
 

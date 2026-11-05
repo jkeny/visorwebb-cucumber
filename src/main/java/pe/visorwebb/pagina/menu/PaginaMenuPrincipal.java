@@ -22,9 +22,9 @@ public class PaginaMenuPrincipal extends BasePage {
 	@FindBy(partialLinkText = "Mnt. de Categoría")
 	WebElement menuMantCategoria;
 
-	public PaginaMenuPrincipal() {
-		super();
-	}
+//	public PaginaMenuPrincipal() {
+//		super();
+//	}
 
 	public PaginaMantenimientoProducto cargarPaginaMantenimientoProducto() {
 
@@ -34,16 +34,18 @@ public class PaginaMenuPrincipal extends BasePage {
 		click(menuMantProducto);
 		
 
-		return new PaginaMantenimientoProducto();
+		//return new PaginaMantenimientoProducto();
+		return this.switchToPage(PaginaMantenimientoProducto.class);
 
 	}
 	
-	public PaginaMantenimientoCategoria cargarPaginaMantenimientoCategoria() {
+	public void cargarPaginaMantenimientoCategoria() {
 		
 		click(menuHamburguesa);
 		click(menuModAlmacen);
 		click(menuMantCategoria);
-		return new PaginaMantenimientoCategoria();
+		//return new PaginaMantenimientoCategoria();
+		//return this.switchToPage(PaginaMantenimientoCategoria.class);
 	
 	}
 
