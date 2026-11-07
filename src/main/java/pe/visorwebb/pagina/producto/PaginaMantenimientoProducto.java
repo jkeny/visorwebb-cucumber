@@ -49,9 +49,9 @@ public class PaginaMantenimientoProducto extends BasePage {
 //
 //	}
 
-	public PaginaRegistrarProducto hacerClicEnBotonNuevo() {
+	public void hacerClicEnBotonNuevo() {
 		click(btnNuevo);
-		return new PaginaRegistrarProducto();
+		//return new PaginaRegistrarProducto();
 	}
 
 	public PaginaActualizarProducto hacerClicEnBotonEditar() {

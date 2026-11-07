@@ -1,4 +1,4 @@
-package pe.visorwebb.test.categoria;
+package pe.visorwebb.test.runners;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;

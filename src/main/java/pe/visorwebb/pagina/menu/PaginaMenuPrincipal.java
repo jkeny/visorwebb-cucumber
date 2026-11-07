@@ -26,7 +26,7 @@ public class PaginaMenuPrincipal extends BasePage {
 //		super();
 //	}
 
-	public PaginaMantenimientoProducto cargarPaginaMantenimientoProducto() {
+	public void cargarPaginaMantenimientoProducto() {
 
 		
 		click(menuHamburguesa);
@@ -35,7 +35,7 @@ public class PaginaMenuPrincipal extends BasePage {
 		
 
 		//return new PaginaMantenimientoProducto();
-		return this.switchToPage(PaginaMantenimientoProducto.class);
+		//return this.switchToPage(PaginaMantenimientoProducto.class);
 
 	}
 	
