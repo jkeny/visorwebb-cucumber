@@ -1,5 +1,5 @@
 Feature: Actualizar Producto
-Yo como administrador del sistema
+Como administrador del sistema
 Quiero editar los productos del catalogo
 Para mantener actualizado los productos
 
@@ -8,7 +8,7 @@ Para mantener actualizado los productos
 
   Scenario Outline: Actualizar producto y validar respuesta del sistema
     Given que estando en el detalle del producto seleccionado <productoSeleccionado>
-    When actualiza el nombre del producto seleccionado con los valores <nuevoNombreProducto> <nuevaCategoria> <nuevoPrecio>
+    When actualiza el producto seleccionado con los valores <nuevoNombreProducto> <nuevaCategoria> <nuevoPrecio>
     Then el sistema debe mostrar el mensaje <mensajeEsperado>
 
     Examples: Actualización Exitosa
