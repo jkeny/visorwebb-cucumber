@@ -1,5 +1,6 @@
 pipeline{
 	agent any
+	
 	tools{
 		maven M3
 		
@@ -26,7 +27,7 @@ pipeline{
 			}
 		}
 	}
-	    post {
+	post {
         always {
             // Publicar los reportes HTML interactivos de Serenity en Jenkins
             publishHTML(target: [
