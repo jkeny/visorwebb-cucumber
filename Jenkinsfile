@@ -19,8 +19,9 @@ pipeline{
 			
 		}
 		
-		stage("ejecutar pruebas en navegador: ${params.BROWSER}"){
+		stage('ejecutar pruebas automatizadas'){
 			steps{
+				echo "Iniciando la ejecución en el navegador: ${params.BROWSER}"
 				bat "mvn clean verify -Denvironment=${params.BROWSER}"
 			}
 		}
