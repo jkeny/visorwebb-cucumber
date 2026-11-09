@@ -29,8 +29,8 @@ pipeline{
 	}
     post {
         always {
-            // Forzamos a Jenkins a mantener o reabrir el espacio de trabajo local para publicar el HTML
-            node {
+            // El bloque script le da el contexto necesario al plugin sin requerir parámetros extras
+            script {
                 publishHTML(target: [
                     allowMissing: false,
                     alwaysLinkToLastBuild: true,
