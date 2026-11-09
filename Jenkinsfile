@@ -27,17 +27,19 @@ pipeline{
 			}
 		}
 	}
-	post {
+    post {
         always {
-            // Publicar los reportes HTML interactivos de Serenity en Jenkins
-            publishHTML(target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: true,
-                keepAll: true,
-                reportDir: 'target/site/serenity',
-                reportFiles: 'index.html',
-                reportName: 'Reporte Serenity BDD'
-            ])
+            // Forzamos a Jenkins a mantener o reabrir el espacio de trabajo local para publicar el HTML
+            node {
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'target/site/serenity',
+                    reportFiles: 'index.html',
+                    reportName: 'Reporte Serenity BDD'
+                ])
+            }
         }
     }
 }
