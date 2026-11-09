@@ -12,8 +12,10 @@ pipeline{
 	stages{
 		stage('Limpiar repositorio y descargar fuentes'){
 			
-			cleanWs()
-			checkout scm
+            steps {
+                cleanWs()
+                checkout scm
+            }
 			
 		}
 		
