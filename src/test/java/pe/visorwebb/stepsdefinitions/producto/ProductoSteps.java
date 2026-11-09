@@ -90,7 +90,7 @@ public class ProductoSteps {
 		Assertions.assertThat(mensajeObtenido).isEqualTo(mensajeEsperado);
 	}
 
-	@When("busca el producto {string} a eliminar")
+	@When("busca el producto {string}")
 	public void busca_el_producto_a_eliminar(String producto) {
 		paginaMenuPrincipal.cargarPaginaMantenimientoProducto();
 		paginaMantenimientoProducto.filtrarProducto(producto);
@@ -130,5 +130,21 @@ public class ProductoSteps {
 		Assertions.assertThat(mensajeObtenido).isEqualTo(mensajeEsperado);
 
 	}
+	
+
+	@Then("el sistema debe mostrar {string} en la lista de resultados")
+	public void el_sistema_debe_mostrar_en_la_lista_de_resultados(String producto) {
+		String productoObtenido = paginaMantenimientoProducto.obtenerResultadoBusqueda();
+		Assertions.assertThat(productoObtenido).isEqualTo(producto);
+	
+	}
+
+
+	@Then("el sistema debe mostrar un mensaje {string}")
+	public void el_sistema_debe_mostrar_un_mensaje(String mensajeEsperado) {
+		String mensajeObtenido = paginaMantenimientoProducto.obtenerResultadoBusqueda();
+		Assertions.assertThat(mensajeEsperado).isEqualTo(mensajeEsperado);
+	}
+
 
 }

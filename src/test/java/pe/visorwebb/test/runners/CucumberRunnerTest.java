@@ -10,7 +10,7 @@ import io.cucumber.core.options.Constants;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("/features/producto/eliminar-producto.feature")
+@SelectClasspathResource("/features/producto")
 //@SelectPackages("features.categoria")
 @ConfigurationParameter(
 		key = Constants.GLUE_PROPERTY_NAME, 

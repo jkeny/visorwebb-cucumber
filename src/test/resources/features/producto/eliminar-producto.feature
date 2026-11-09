@@ -8,7 +8,7 @@ Para mantener actualizado el maestro de productos
 
   Scenario Outline: Eliminar producto seleccionado y validar respuesta del sistema
     Given que el sistema muestra el catálogo de mantenimiento de productos
-    When busca el producto <producto> a eliminar
+    When busca el producto <producto>
     And selecciona el producto <producto> de la tabla
     And hace clic en el botón Eliminar
     And acepta el mensaje de confirmación de eliminación
@@ -20,7 +20,7 @@ Para mantener actualizado el maestro de productos
 
   Scenario Outline: Eliminar sin seleccionar producto y validar respuesta del sistema
     Given que el sistema muestra el catálogo de mantenimiento de productos
-    When busca el producto <producto> a eliminar
+    When busca el producto <producto>
     And hace clic en el botón Eliminar
     And acepta el mensaje de confirmación de eliminación
     Then el sistema mostrará un mensaje <mensajeEsperado> de producto no seleccionado

@@ -54,10 +54,10 @@ public class PaginaMantenimientoProducto extends BasePage {
 		//return new PaginaRegistrarProducto();
 	}
 
-	public PaginaActualizarProducto hacerClicEnBotonEditar() {
+	public void hacerClicEnBotonEditar() {
 		click(btnActualizar);
 		//return new PaginaActualizarProducto();
-		return this.switchToPage(PaginaActualizarProducto.class);
+		//return this.switchToPage(PaginaActualizarProducto.class);
 	}
 
 	public void hacerClicEnBotonEliminar() {
