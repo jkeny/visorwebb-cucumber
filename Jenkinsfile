@@ -1,0 +1,39 @@
+pipeline{
+	agent any
+	tools{
+		maven M3
+		
+	}
+
+	parameters{
+		choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Selecciona el navegador para la ejecución de las pruebas')
+		
+	}
+	stages{
+		stage('Limpiar repositorio y descargar fuentes'){
+			
+			cleanWs()
+			checkout scm
+			
+		}
+		
+		stage("ejecutar pruebas en navegador: ${params.BROWSER}"){
+			steps{
+				bat "mvn clean verify -Denvironment=${params.BROWSER}"
+			}
+		}
+	}
+	    post {
+        always {
+            // Publicar los reportes HTML interactivos de Serenity en Jenkins
+            publishHTML(target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'target/site/serenity',
+                reportFiles: 'index.html',
+                reportName: 'Reporte Serenity BDD'
+            ])
+        }
+    }
+}
